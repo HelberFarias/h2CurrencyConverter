@@ -1,5 +1,9 @@
+package main.br.alura.challenge.h2currencyconverte.apiClient;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import main.br.alura.challenge.h2currencyconverte.records.ConversionRates;
+import main.br.alura.challenge.h2currencyconverte.records.ExchangeData;
 
 import java.io.IOException;
 import java.net.URI;
@@ -25,7 +29,8 @@ public class ApiClient {
                 .build();
         HttpResponse<String> response = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
-        String resposta = (String)response.body();
-        System.out.println(resposta);
+        String resposta = response.body();
+        ExchangeData exchangeData = gson.fromJson(resposta, ExchangeData.class);
+        System.out.println(exchangeData.conversion_rates());
     }
 }
