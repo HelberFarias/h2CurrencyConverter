@@ -1,10 +1,8 @@
 package main.br.alura.challenge.h2currencyconverte.apiClient;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import main.br.alura.challenge.h2currencyconverte.records.ConversionRates;
 import main.br.alura.challenge.h2currencyconverte.records.ExchangeData;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
