@@ -10,9 +10,10 @@ public class Menu {
         Scanner input = new Scanner(System.in);
         boolean out = false;
         System.out.println("Welcome to H2 Currency Converter!");
-        String choice = input.nextLine();
+
         while(!out){
             System.out.println("Please, enter your choice: " );
+            int choice = input.nextInt();
             System.out.println(
                     "\nMenu:\n"+
                             "1 - Currency Converter%n" +
@@ -21,15 +22,19 @@ public class Menu {
             switch (choice) {
                 case 1:
                     System.out.println("Please, digit currency code: ");
+                    String base_code = input.nextLine();
                     DisponibleCurrencyList currencyList = new DisponibleCurrencyList();
-                    String currencyChoice = input.nextLine();
                     System.out.println("Please, digit the currency converter: ");
-                    DisponibleCurrencyList currencyList = new DisponibleCurrencyList();
-                    String converterChoise = input.nextLine();
+                    String conversion_rate = input.nextLine();
+                    //DisponibleCurrencyList currencyList = new DisponibleCurrencyList();
                     System.out.println("Please, enter the amount to convert: ");
                     double amountToConvert = input.nextDouble();
-                    ConverterService converterService = new ConverterService();
-                    converterService.calculateConversio(currencyChoice, converterChoise);
+                    //ConverterService converterService = new ConverterService();
+                    //converterService.calculateConversio(currencyChoice, converterChoise);
+                    break;
+                default:
+                    System.out.println("Vooti");
+                    break;
 
 
 
