@@ -11,6 +11,7 @@ public class Main {
         ApiClient newApiClient = new ApiClient();
         Menu menu = new Menu();
         menu.startMenu();
+        newApiClient.ConverterApi("USD");
 
 
     }

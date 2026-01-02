@@ -1,6 +1,5 @@
 package main.br.alura.challenge.h2currencyconverte.apiClient;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import main.br.alura.challenge.h2currencyconverte.records.ConversionRates;
 import main.br.alura.challenge.h2currencyconverte.records.ExchangeData;
 import java.io.IOException;
@@ -10,13 +9,14 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ApiClient {
+
     Gson gson = new GsonBuilder()
         .setPrettyPrinting()
         .create();
 
-    public void ConverterApi(String currencyy) throws IOException, InterruptedException {
+    public void ConverterApi(String currency) throws IOException, InterruptedException {
         String API_KEY = "75aad2a0ca3e34113fb202a7";
-        String currency = "BRL";
+        String curreny = "USD";
         String endereco = "https://v6.exchangerate-api.com/v6/" +
                 API_KEY + "/latest/"
                 + currency;
