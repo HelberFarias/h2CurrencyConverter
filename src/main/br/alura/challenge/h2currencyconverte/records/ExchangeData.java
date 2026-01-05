@@ -1,6 +1,8 @@
 package main.br.alura.challenge.h2currencyconverte.records;
 
+import java.util.Map;
+
 public record ExchangeData (
         String base_code,
-        ConversionRates conversion_rates)
+        Map<String, Double> conversion_rates)
         {}

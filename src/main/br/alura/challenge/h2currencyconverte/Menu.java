@@ -1,9 +1,19 @@
 package main.br.alura.challenge.h2currencyconverte;
+import main.br.alura.challenge.h2currencyconverte.apiClient.ApiClient;
 import main.br.alura.challenge.h2currencyconverte.currencyData.ConverterService;
 import main.br.alura.challenge.h2currencyconverte.currencyData.DisponibleCurrencyList;
+import main.br.alura.challenge.h2currencyconverte.records.ConversionRates;
+import main.br.alura.challenge.h2currencyconverte.records.ExchangeData;
+
 import java.util.Scanner;
 
 public class Menu {
+    private final ConverterService converterService;
+
+    public Menu(ConverterService converterService) {
+        this.converterService = converterService;
+    }
+
     public void startMenu (){
         Scanner input = new Scanner(System.in);
         boolean out = false;
@@ -15,10 +25,11 @@ public class Menu {
                         "\n------ Menu ------\n" +
                         "------------------\n"+
                             "1 - Currency Converter\n" +
-                            "2 - Currency Code List\n" + // fazer um filtro dentro dessa opção para mostrar a moeda mais valorizada (comparable)
-                            "3 - Out of Program%n");
+                            "2 - Out of Program\n");
             System.out.println("Please, enter your choice: " );
             int choice = input.nextInt();
+            input.nextLine();
+
             switch (choice) {
                 case 1:
                     System.out.println("Please, digit currency code: \n" +
@@ -27,37 +38,30 @@ public class Menu {
                                 " -- USD-- \n" +
                                 " -- JPY-- \n" +
                                 " -- GBP-- \n" +
-                                " -- AUD --");
-                    String base_code = input.nextLine();
-                    input.nextLine();
-                    //DisponibleCurrencyList currencyList = new DisponibleCurrencyList();
+                                " -- AUD --\n");
+                    String from = input.nextLine().toUpperCase();
                     System.out.println("Please, digit the currency converter: \n" +
                                 " -- BRL --\n" +
                                 " -- EUR --\n" +
                                 " -- USD-- \n" +
                                 " -- JPY-- \n" +
                                 " -- GBP-- \n" +
-                                " -- AUD --");
-                    String conversion_rate = input.nextLine();
-
-                    //DisponibleCurrencyList currencyList = new DisponibleCurrencyList();
+                                " -- AUD --\n");
+                    String to = input.nextLine().toUpperCase();
                     System.out.println("Please, enter the amount to convert: ");
-                    double amountToConvert = input.nextDouble();
-                    //System.out.println("Total converted: $" + amountTotalConvert);
+                    double amount = input.nextDouble();
+                    input.nextLine();
+                    double totalConverted = converterService.convertRate(from, to, amount);
+                    System.out.println("Total converted: " + totalConverted);
+                   break;
 
-                    //ConverterService converterService = new ConverterService();
-                    //converterService.convertRate()
-
+                case 2:
+                    System.out.println("Out of system..");
+                    out = true;
                     break;
+
                 default:
-                    System.out.println("Vooti");
-                    break;
-
-
-
-
-
-
+                    System.out.println("Wrong choice. Try again");
 
             }
         }

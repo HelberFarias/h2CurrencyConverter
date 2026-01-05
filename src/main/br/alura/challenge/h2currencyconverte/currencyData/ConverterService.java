@@ -1,31 +1,19 @@
 package main.br.alura.challenge.h2currencyconverte.currencyData;
 import main.br.alura.challenge.h2currencyconverte.records.ConversionRates;
 
-
-// //////////////////////////////////////////////////////////////////////////////////////////////
-// OBJETIVO DA CLASSE! //
-// a classe em questão tem como objetivo fazer o calculo de converção das moedas de forma dinamica
-// ///////////////////////////////////////////////////////////////////////////////////////////////
-
+import java.util.Map;
 
 
 public class ConverterService {
-    private ConversionRates rates;
+    private final Map<String, Double> rates;
 
-    public ConversionRates getRates() {
-        return rates;
-    }
-
-    public ConverterService(ConversionRates rates) {
+    public ConverterService(Map<String, Double> rates) {
         this.rates = rates;
     }
 
-    //public double convertRates (String from, String to, double amount) {
-        //if (from.equals(to)) {
-           // return amount;
-       // }
-        //double rateFrom = getRates(from);
-       // double rateTo = getRates(to);
-
-    //}
+    public double convertRate (String from, String to, double amount) {
+        double rateFrom = rates.get(from);
+        double rateTo = rates.get(to);
+        return (amount / rateFrom) * rateTo;
+    }
 }

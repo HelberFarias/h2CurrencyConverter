@@ -1,10 +1,6 @@
 package main.br.alura.challenge.h2currencyconverte.records;
 
+import java.util.Map;
+
 public record ConversionRates(
-        String BRL,
-        String EUR,
-        String USD,
-        String JPY,
-        String GBP,
-        String AUD)
-        {}
+        Map<String, Double> rates) {}
