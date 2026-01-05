@@ -1,5 +1,4 @@
 package main.br.alura.challenge.h2currencyconverte.currencyData;
-import main.br.alura.challenge.h2currencyconverte.records.ConversionRates;
 
 import java.util.Map;
 

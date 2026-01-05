@@ -3,7 +3,6 @@ package main;
 import main.br.alura.challenge.h2currencyconverte.Menu;
 import main.br.alura.challenge.h2currencyconverte.apiClient.ApiClient;
 import main.br.alura.challenge.h2currencyconverte.currencyData.ConverterService;
-import main.br.alura.challenge.h2currencyconverte.records.ConversionRates;
 import main.br.alura.challenge.h2currencyconverte.records.ExchangeData;
 
 import java.util.Map;
